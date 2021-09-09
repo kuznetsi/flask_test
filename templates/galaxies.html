@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--Для применения фильтров, необходимо ставить вертикальный слэш-->
+{% for gal in nearby_galaxies.values() %}
+<!--Фильтр для округления-->
+{{ gal['distance_trillionkm'] }} - округление с помощью <code>| round | int </code> - {{ gal['distance_trillionkm'] | round | int }}
+<br>
+{% endfor %}
+<!--Фильтр для вывода пределенного количества символов-->
+{% for gal in nearby_galaxies.values() %}
+{{ gal['description'] }} - обрезка описания с помощью <code>| truncate(length=50, killwords=True, end='>>>') </code> - {{ gal['description'] | truncate(length=50, killwords=True, end='>>>') }}
+<br>
+{% endfor %}
+<!--Длина словаря-->
+Длина словаря - с помощью команы length - {{nearby_galaxies | length}}<br>
+<!--Общая сумма дистанций в световых годах-->
+Длина словаря - с помощью команы sum(attribute='distance_ly') - {{nearby_galaxies.values() | sum(attribute='distance_ly') }}
+<br>
+<!--Максимальная и минимальныая галактики-->
+Минимальная - {{nearby_galaxies.values() | min(attribute='distance_ly') }}
+<br>
+Минимальная - {{(nearby_galaxies.values() | min(attribute='distance_ly'))['distance_ly'] }} - {{(nearby_galaxies.values() | min(attribute='distance_ly'))['galaxy'] }}
+<br>
+Максимальная - {{(nearby_galaxies.values() | max(attribute='distance_ly'))['distance_ly'] }} - {{(nearby_galaxies.values() | max(attribute='distance_ly'))['galaxy'] }}
+
+<br>
+<!--Первое и последнее значени-->
+<!--С помощью list преобразуем в список-->
+{{nearby_galaxies.values() | list | first}}
+<br>
+{{nearby_galaxies.values() | list | last}}
+<!--Случайное значение из списка-->
+<br>
+{{nearby_galaxies.values() | list | random}}
+<br>
+<!--Сортировка-->
+<!--Используем list, чтобы преобразовать в список, так как только его можно сортировать-->
+{% for gal in nearby_galaxies.values() | list | sort(attribute='distance_ly') %}
+{{ gal['galaxy'] }}
+<br>
+{% endfor %}
+</body>
+</html>

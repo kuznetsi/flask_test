@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% for rose in roses %}
+{{rose}}:
+    {% for value in roses[rose] %}
+        {{value}},
+    {% endfor %}
+    <br>
+{% endfor %}
+<!--Или альтернативный вариант-->
+<!--Получать сразу и ключ и значение-->
+<!--{% for rose, value in roses.items() %}-->
+<!--    {{rose}}:-->
+<!--    {% for x in value %}-->
+<!--        {{x}},-->
+<!--    {% endfor %}-->
+<!--    <br>-->
+<!--{% endfor %}-->
+</body>
+</html>
