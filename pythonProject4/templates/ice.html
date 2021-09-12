@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Форма заказа мороженного</title>
+</head>
+<body>
+<!--POST form-->
+<form action="/ice/" method="POST">
+    {{ form.tastes.label }}
+    {{ form.tastes }}
+    {{ form.toppings.label }}
+    {{ form.toppings }}
+    {{ form.cup_size.label }}
+    {{ form.cup_size }}
+    {{ form.submit.label }}
+    {{ form.submit }}
+</form>
+</body>
+</html>

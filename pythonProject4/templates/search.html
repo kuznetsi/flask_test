@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Поиск</title>
+</head>
+<body>
+<h2>Get form</h2>
+<!--GET form-->
+<!--action="/dosearch/" - говорит о том, что форма должна быть отправлена на этот /dosearch-->
+<form action="/getsearch/" method="GET">
+    <input type="email" name="mail" placeholder="Почта">
+<!--    name="mail" - имя ключа по которому браузер направит нам значение-->
+    <input type="submit" value="Подписаться">
+</form>
+<h2>Post form</h2>
+<!--POST form-->
+<form action="/postsearch/" method="POST">
+    <input type="email" name="mail" placeholder="Почта">
+<!--    name="s" - имя ключа по которому браузер направит нам значение-->
+    <input type="submit" value="Подписаться">
+</form>
+</body>
+</html>
